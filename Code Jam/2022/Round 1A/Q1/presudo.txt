@@ -1,0 +1,29 @@
+Read test Case
+
+1. check if lex is higher than next one
+2. smaller => double
+3. equal => +1 to temp string until it is smaller
+final string
+temp string =""
+this string
+for each i in string
+for i =0 {
+temp=i
+last=i
+continue
+}
+if last > i {
+    final=final+temp+temp
+    // reset
+    temp=i
+    last =i
+    continue
+}else if last == i {
+   temp = i+temp 
+}else {
+    final=final + temp
+    temp=i
+    last =i
+}
+}
+final= final+ temp
