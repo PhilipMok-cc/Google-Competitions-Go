@@ -45,32 +45,33 @@ func main() {
 
 //Logic goes here
 func Solve(caseNum int, s *bufio.Scanner) {
-	S := ReadWord(s)
-	var fin, temp []rune
-	var last rune
-	for x, i := range S {
-		if x == 0 {
-			temp = []rune{i}
-			last = i
-			continue
-		}
-		if last < i {
-			fin = append(fin, temp...)
-			fin = append(fin, temp...)
-			temp = []rune{i}
-			last = i
-		} else if last == i {
-			temp = append(temp, i)
-		} else {
-			fin = append(fin, temp...)
-			temp = []rune{i}
-			last = i
-		}
-
+	N := ReadInt(s)
+	var p []int
+	var st, en int
+	p = make([]int, N)
+	for i := 0; i < N; i++ {
+		p[i] = ReadInt(s)
 	}
-	fin = append(fin, temp...)
-	fa := string(fin)
+	st, en = 0, N-1
+	cnt := 0
+	level := 0
+
+	for st <= en {
+		if p[st] < p[en] {
+			if p[st] >= level {
+				cnt++
+				level = p[st]
+			}
+			st++
+		} else {
+			if p[en] >= level {
+				cnt++
+				level = p[en]
+			}
+			en--
+		}
+	}
 
 	// Start Printing
-	fmt.Printf("Case #%d: %v\n", caseNum+1, fa)
+	fmt.Printf("Case #%d: %v\n", caseNum+1, cnt)
 }

@@ -1,1 +1,4 @@
-/.DS_Store
+.DS_Store
+*.out
+ts_*
+**/.DS_Store
