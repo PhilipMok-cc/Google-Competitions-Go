@@ -1,0 +1,17 @@
+Start from R
+x A
+/ B
+---
+R
+RA
+RA/B
+RAA/B
+RAA/BB
+
+-----------------------------
+RsqrSum=0
+curR=R
+for CurR >0 
+Rsqr += (i*i)^2 + (i*A)^2
+CurR=i*A/B
+retrun Rsqr * pi
