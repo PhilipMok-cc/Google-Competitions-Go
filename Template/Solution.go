@@ -25,13 +25,15 @@ func arrayToString(a []rune) string {
 }
 
 func main() {
-	// Defind buffer size
+	// Define buffer size
 	const bufferSize = 512 * 1024
 
 	// Read from Stdin
 	scanner := bufio.NewScanner(os.Stdin)
 	// Set Buffer Size
 	scanner.Buffer(make([]byte, bufferSize), bufferSize)
+	// Config Buffer to read word by word
+	scanner.Split(bufio.ScanWords)
 
 	// Read Number of Case
 	numOfCase := ReadInt(scanner)
